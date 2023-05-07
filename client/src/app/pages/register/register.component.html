@@ -1,0 +1,47 @@
+<div class="container h-100" id="container">
+    <div class="row h-100">
+        <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+            <div class="d-table-cell align-middle">
+
+                <div class="text-center mt-4">
+                    <h1 class="h2">Kezdjük el</h1>
+                    <p class="lead">
+                        Légy tagja egy nagyszerű közösségnek és tegyünk együtt a környezetünkért.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="m-sm-4">
+                            <form #addForm="ngForm" (ngSubmit)="onCreateUser(addForm)">
+                                <div class="form-group">
+                                    <label>Felhaszálónév</label>
+                                    <input required ngModel class="form-control form-control-lg" type="text" 
+                                    name="username" placeholder="Adja meg felhasználónevét">
+                                </div>
+                                <div class="form-group">
+                                    <label>Születési dátum</label>
+                                    <input required ngModel class="form-control form-control-lg" type="date"
+                                        min="1900" max="2022" name="birthdate" placeholder="Adja meg születési dátumát">
+                                </div>
+                                <div class="form-group">
+                                    <label>Jelszó</label>
+                                    <input required ngModel #password="ngModel" minlength="6"
+                                        class="form-control form-control-lg" type="password" name="password"
+                                        placeholder="Adja meg jelszavát">
+                                    <div class="alert alert-danger" *ngIf="password.touched && password.invalid">A
+                                        jelszónak legalább 6
+                                        karaktert tartalmaznia kell</div>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <button [disabled]="addForm.invalid" id="register-button" type="submit"
+                                        class="btn btn-lg btn-info">Regisztráció</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

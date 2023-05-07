@@ -1,0 +1,33 @@
+<div class="" tabindex="-1" role="dialog" aria-labelledby="createTripModalLabel">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="createTripModalLabel">Utazás meghírdetés</h2>
+      </div>
+      <div class="modal-body">
+        <form #createForm="ngForm" (ngSubmit)="onCreateTrip(createForm)">
+          <div class="form-group">
+            <label for="origin">Kiinduló hely</label>
+            <input ngModel type="text" name="origin" class="form-control" id="create-origin" placeholder="Kiinduló hely" required>
+          </div>
+          <div class="form-group">
+            <label for="destination">Célhely</label>
+            <input ngModel type="text" name="destination" class="form-control" id="create-destination" placeholder="Célhely" required>
+          </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]="user"  name="username" id="create-username" hidden>
+          </div>
+          <div class="md-form">
+            <i class="fa fa-pencil"></i>
+            <textarea ngModel type="text" maxlength="150" id="create-description" name="description"
+              class="md-textarea form-control" placeholder="Egyéb információk az utazásról"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button [disabled]="createForm.invalid" id="save-trip-button" type="submit"
+              class="btn btn-info">Mentés</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

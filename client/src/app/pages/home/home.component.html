@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="text-center mb-5">
+      <br>
+      <h3>Meghirdetett utazások</h3>
+      <p class="lead">Hagyjuk, hogy az üres helyek dolgozzanak helyettünk!</p>
+    </div>
+  
+  
+    <div class="">
+      <form class="search-form" #searchForm="ngForm" (submit)="onSearchTrip(searchForm)">
+        <input ngModel name="origin" class="form-control mr-sm-2" type="search" placeholder="Indulási hely" />
+        <input ngModel name="destination" class="form-control mr-sm-2" type="search" placeholder="Célhely" />
+        <button id="search-button" class="btn btn-outline-info my-2 my-sm-0" type="submit">Keresés</button>
+      </form>
+    </div>
+
+    <div *ngFor="let trip of trips">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex flex-column flex-lg-row" style="cursor: pointer;">
+            <div class="row flex-fill">
+              <div class="col-sm-5">
+                <ng-template #tipContent>Indulási hely</ng-template>
+                <h4 class="h5" [ngbTooltip]="tipContent">{{trip.origin}}</h4>
+                <ng-template #tipContent2>Célhely</ng-template>
+                <h4 class="h5" [ngbTooltip]="tipContent2">{{trip.destination}}</h4>
+              </div>
+              <div class="col-sm-4 py-2">
+                <span class="text-pre-wrap"
+                  style="background-color: #0acab1; margin: 5px;">{{trip.description}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
